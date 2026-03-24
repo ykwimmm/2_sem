@@ -20,6 +20,12 @@ Plane::Plane(const Point& p1, const Point& p2, const Point& p3)
     double y3 = p3.getY();
     double z3 = p3.getZ();
 
+    if (p1 == p2 || p1 == p3 || p2 == p3) 
+    {
+        cout << "Ошибка, точки совпадают\n";
+        exit(EXIT_FAILURE);
+    }
+
     A = (y2 - y1) * (z3 - z1) - (z2 - z1) * (y3 - y1);
     B = (z2 - z1) * (x3 - x1) - (x2 - x1) * (z3 - z1);
     C = (x2 - x1) * (y3 - y1) - (y2 - y1) * (x3 - x1);
@@ -49,12 +55,3 @@ double Plane::distanceToPoint(const Point& p) const
     return numerator / denominator;
 }
 
-bool Point::operator == (const Point& other) const 
-{
-    return (this->x == other.x) && (this->y == other.y);
-}
-
-bool Point::operator != (const Point& other) const 
-{
-    return !(*this == other);
-}
