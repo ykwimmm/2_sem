@@ -1,5 +1,6 @@
 #include<iostream>
 #include<limits>
+#include<cmath>
 #include"Point.h"
 
 using namespace std;
@@ -45,7 +46,8 @@ std::istream& operator>>(std::istream& is, Point& p)
 
 bool Point::operator == (const Point& other) const 
 {
-    return (this->x == other.x) && (this->y == other.y);
+    return (fabs(this->x - other.x) < numeric_limits<double>::epsilon()) && 
+        (fabs(this->y - other.y) < numeric_limits<double>::epsilon());
 }
 
 bool Point::operator != (const Point& other) const 
