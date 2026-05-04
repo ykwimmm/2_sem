@@ -5,6 +5,8 @@
 #include <ostream>
 #include "QueueNode.h"
 
+// Очередь с неограниченным ожиданием
+
 class Queue 
 {
 private:
