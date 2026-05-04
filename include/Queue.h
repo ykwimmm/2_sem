@@ -12,12 +12,12 @@ private:
     /*
     * @brief Указатель на начало очереди
     */
-    QueueNode* front;   
+    QueueNode* head;   
 
     /*
     * @brief Указатель на конец очереди
     */
-    QueueNode* rear;    
+    QueueNode* tail;    
 
     /*
     * @brief Текущий размер очереди
