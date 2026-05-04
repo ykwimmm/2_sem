@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Queue::Queue() : front(nullptr), rear(nullptr), size(0) 
+Queue::Queue() : head(nullptr), tail(nullptr), size(0) 
 {
 }
 
@@ -20,10 +20,10 @@ Queue::Queue(const Queue& other) : Queue()
     copyFrom(other);
 }
 
-Queue::Queue(Queue&& other) noexcept: front(other.front), rear(other.rear), size(other.size) 
+Queue::Queue(Queue&& other) noexcept: head(other.head), tail(other.tail), size(other.size) 
 {
-    other.front = nullptr;
-    other.rear = nullptr;
+    other.head = nullptr;
+    other.tail = nullptr;
     other.size = 0;
 }
 
@@ -47,11 +47,11 @@ Queue& Queue::operator=(Queue&& other) noexcept
     if (this != &other) 
     {
         clear();
-        front = other.front;
-        rear = other.rear;
+        head = other.head;
+        tail = other.tail;
         size = other.size;
-        other.front = nullptr;
-        other.rear = nullptr;
+        other.head = nullptr;
+        other.tail = nullptr;
         other.size = 0;
     }
     return *this;
@@ -79,13 +79,13 @@ void Queue::enqueue(int value)
 
     if (isEmpty()) 
     {
-        front = newNode;
-        rear = newNode;
+        head = newNode;
+        tail = newNode;
     }
     else 
     {
-        rear->setNext(newNode);
-        rear = newNode;
+        tail->setNext(newNode);
+        tail = newNode;
     }
 
     size++;
@@ -98,14 +98,14 @@ int Queue::dequeue()
         throw runtime_error("Очередь пуста.");
     }
 
-    QueueNode* temp = front;
+    QueueNode* temp = head;
     int value = temp->getData();
 
-    front = front->getNext();
+    head = head->getNext();
 
-    if (front == nullptr) 
+    if (head == nullptr) 
     {
-        rear = nullptr;
+        tail = nullptr;
     }
 
     delete temp;
@@ -121,7 +121,7 @@ int Queue::peek() const
         throw runtime_error("Очередь пуста.");
     }
 
-    return front->getData();
+    return head->getData();
 }
 
 bool Queue::isEmpty() const 
@@ -144,7 +144,7 @@ std::string Queue::toString() const
     std::ostringstream oss;
     oss << "[";
 
-    QueueNode* current = front;
+    QueueNode* current = head;
     while (current != nullptr) 
     {
         oss << current->getData();
@@ -169,7 +169,7 @@ void Queue::clear()
 
 void Queue::copyFrom(const Queue& other) 
 {
-    QueueNode* current = other.front;
+    QueueNode* current = other.head;
     while (current != nullptr) 
     {
         enqueue(current->getData());
