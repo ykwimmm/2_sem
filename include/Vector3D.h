@@ -29,7 +29,7 @@ public:
     * @param dy Компонента Y
     * @param dz Компонента Z
     */
-    explicit Vector3D(double dx = 0.0, double dy = 0.0, double dz = 0.0);
+    explicit Vector3D(const double dx = 0.0, const double dy = 0.0, const double dz = 0.0);
 
     /**
     * @brief Конструктор вектора по двум точкам
@@ -128,14 +128,14 @@ public:
      * @param scalar Скалярный множитель
      * @return вектор, умноженный на скаляр
      */
-    Vector3D operator*(double scalar) const;
+    Vector3D operator*(const double scalar) const;
 
     /**
     * @brief Деление вектора на скаляр
     * @param scalar Скалярный делитель
     * @return вектор, поделенный на скаляр
     */
-    Vector3D operator/(double scalar) const;
+    Vector3D operator/(const double scalar) const;
 
     /**
     * @brief Унарный минус
@@ -157,4 +157,4 @@ public:
 * @param v Вектор
 * @return умножение скаляра на вектор
 */
-Vector3D operator*(double scalar, const Vector3D& v);
+Vector3D operator*(const double scalar, const Vector3D& v);
