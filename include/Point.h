@@ -29,7 +29,7 @@ public:
     * @param y Координата Y (ордината)
     * @param z Координата Z (аппликата)
     */
-    explicit Point(double x = 0.0, double y = 0.0, double z = 0.0);
+    explicit Point(const double x = 0.0, const double y = 0.0, const double z = 0.0);
 
     /**
     * @brief Конструктор копирования
@@ -123,13 +123,6 @@ public:
     * @return Новая точка с координатами (x1+x2, y1+y2, z1+z2)
     */
     Point operator+(const Point& other) const;
-
-    /**
-    * @brief Покоординатное вычитание двух точек
-    * @param other Вычитаемая точка
-    * @return Новая точка с координатами (x1-x2, y1-y2, z1-z2)
-    */
-    Point operator-(const Point& other) const;
 
     /*
     * @brief получение разрешения у класса на доступ к private для вывода
