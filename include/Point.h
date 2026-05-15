@@ -79,51 +79,6 @@ public:
     */
     bool operator!=(const Point& other) const;
 
-    /**
-    * @brief Оператор < 
-    * @return 1 если меньше other
-    */
-    bool operator<(const Point& other) const;
-
-    /**
-    * @brief Оператор <=
-    * @return 1 если <= other
-    */
-    bool operator<=(const Point& other) const;
-
-    /**
-    * @brief Оператор >
-    * @return 1 если > other
-    */
-    bool operator>(const Point& other) const;
-
-    /**
-    * @brief Оператор >=
-    * @return 1 если >= other
-    */
-    bool operator>=(const Point& other) const;
-
-    /**
-    * @brief Сложение с вещественным числом
-    * @param val Значение, прибавляемое ко всем координатам
-    * @return Новая точка с координатами (x+val, y+val, z+val)
-    */
-    Point operator+(double val) const;
-
-    /**
-    * @brief Вычитание вещественного числа из точки
-    * @param val Значение, вычитаемое из всех координат
-    * @return Новая точка с координатами (x-val, y-val, z-val)
-    */
-    Point operator-(double val) const;
-
-    /**
-    * @brief Покоординатное сложение двух точек
-    * @param other Вторая точка
-    * @return Новая точка с координатами (x1+x2, y1+y2, z1+z2)
-    */
-    Point operator+(const Point& other) const;
-
     /*
     * @brief получение разрешения у класса на доступ к private для вывода
     * @param os
