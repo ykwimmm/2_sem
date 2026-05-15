@@ -1,6 +1,7 @@
 #include "VectorBase.h"
 #include "Vector3D.h"
 #include <cmath>
+#include <limits>
 #include <stdexcept>
 
 double VectorBase::angle(const VectorBase& v1, const VectorBase& v2) 
@@ -16,7 +17,7 @@ double VectorBase::angle(const VectorBase& v1, const VectorBase& v2)
     double n1 = v1.norm();
     double n2 = v2.norm();
 
-    if (n1 == 0.0 || n2 == 0.0) 
+    if (fabs(n1) < numeric_limits<double>::epsilon() || fabs(n2) < numeric_limits<double>::epsilon()) 
     {
         throw std::domain_error("Невозможно вычислить угол для нулевого вектора");
     }
