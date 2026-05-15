@@ -6,7 +6,7 @@
 
 using namespace std;
 
-Vector3D::Vector3D(double dx, double dy, double dz) : m_dx(dx), m_dy(dy), m_dz(dz) 
+Vector3D::Vector3D(const double dx, const double dy, const double dz) : m_dx(dx), m_dy(dy), m_dz(dz) 
 {
 }
 
