@@ -4,6 +4,8 @@
 #include <limits>
 #include <stdexcept>
 
+using namespace std;
+
 double VectorBase::angle(const VectorBase& v1, const VectorBase& v2) 
 {
     const auto* vec1 = dynamic_cast<const Vector3D*>(&v1);
