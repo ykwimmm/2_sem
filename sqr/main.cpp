@@ -2,7 +2,7 @@
 #include <iostream>
 #include <iomanip>
 #include <cmath>
-#include <locale.h>
+#include <clocale>
 #include "Point.h"
 #include "VectorBase.h"
 #include "Vector3D.h"
@@ -13,7 +13,7 @@ using namespace std;
 * @brief Точка входа в программу
 * @return 0 в случае успеха
 */
-int main() 
+int main()
 {
     setlocale(LC_ALL, "Russian");
 
@@ -32,12 +32,6 @@ int main()
 
     cout << "\nA == B: " << (A == B ? "да" : "нет") << endl;
     cout << "A != B: " << (A != B ? "да" : "нет") << endl;
-    cout << "A < B: " << (A < B ? "да" : "нет") << endl;
-
-    cout << "\nA + 10 = " << (A + 10.0) << endl;
-    cout << "B - 5 = " << (B - 5.0) << endl;
-    cout << "A + B = " << (A + B) << endl;
-    cout << "B - A = " << (B - A) << endl;
 
     Vector3D v1(A, B);
     Vector3D v2(A, C);
